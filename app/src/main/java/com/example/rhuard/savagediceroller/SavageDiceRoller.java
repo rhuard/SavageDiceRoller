@@ -3,9 +3,6 @@ package com.example.rhuard.savagediceroller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -36,7 +33,7 @@ public class SavageDiceRoller extends AppCompatActivity {
 
     //Helper Methods
     private String CurrentSpinnerValue() {
-        Spinner sp = (Spinner) findViewById(R.id.fragSpinner);
+        Spinner sp = (Spinner) findViewById(R.id.modifierSpinner);
         return sp.getSelectedItem().toString();
     }
 
@@ -52,14 +49,14 @@ public class SavageDiceRoller extends AppCompatActivity {
     }
 
     private void DisplayResult(String result){
-        TextView textview = (TextView) findViewById(R.id.resultTextView);
+        TextView textview = (TextView) findViewById(R.id.savageResultView);
         textview.setText(result);
     }
 
     private void DisplayResult(Hashtable<String, List<Integer>> result){
-        TextView result_text = (TextView) findViewById(R.id.resultTextView);
-        TextView wild_text = (TextView) findViewById(R.id.wildTextView);
-        TextView roll_text = (TextView) findViewById(R.id.rollTextView);
+        TextView result_text = (TextView) findViewById(R.id.savageResultView);
+        TextView wild_text = (TextView) findViewById(R.id.savageWwildTextView);
+        TextView roll_text = (TextView) findViewById(R.id.savageRollTextView);
 
         if(result.containsKey("Wildcard")) {
             wild_text.setText("Wild die: " + result.get("Wildcard").toString());
@@ -73,11 +70,11 @@ public class SavageDiceRoller extends AppCompatActivity {
     private void ProcessRoll(int size){
 
         Hashtable<String, List<Integer>> result = null;
-        Switch ms = (Switch) findViewById(R.id.fragmodswitch);
+        Switch ms = (Switch) findViewById(R.id.modifierSwitch);
         //check if modifier is required
         if(ms.isChecked()){
             //create modifier
-            RadioButton mod_rd = (RadioButton) findViewById(R.id.fragnegbutton);
+            RadioButton mod_rd = (RadioButton) findViewById(R.id.modifierNegButton);
             int mod = Integer.parseInt(CurrentSpinnerValue());
             if (mod_rd.isChecked()){
                 mod = -mod;

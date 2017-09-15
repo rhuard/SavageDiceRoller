@@ -22,4 +22,9 @@
     <string name="OpenD6RollerButton">Open D6 Die Roller</string>
     <string name="FudgeRollerButton">Fudge Die Roller</string>
     <string name="DicePoolRollerButton">Dice Pool Roller</string>
+    <string name="OpenD6Rolls">Rolls</string>
+    <string name="OpenD6Results">results will show here</string>
+    <string name="OpenD6DieTotal">0</string>
+    <string name="OpenD6WildSwitch">Wild Die</string>
+    <string name="RollButton">Roll</string>
 </resources>

@@ -1,9 +1,6 @@
 package com.example.rhuard.savagediceroller;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,25 +31,25 @@ public class ModifierFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_modifier, container, false);
 
         //Init radio buttons
-        RadioGroup rg = (RadioGroup) view.findViewById(R.id.fragRadioGroup);
-        int pos_id = R.id.fragPosButton;
+        RadioGroup rg = (RadioGroup) view.findViewById(R.id.modifierRadioGroup);
+        int pos_id = R.id.modifierPosButton;
         rg.check(pos_id);
 
         //Init spinner
         ArrayAdapter<String> values = InitSpinner();
-        Spinner ms = (Spinner) view.findViewById(R.id.fragSpinner);
+        Spinner ms = (Spinner) view.findViewById(R.id.modifierSpinner);
         AdapterView.OnItemSelectedListener listener = new ModifierFragment.ModifierOnItemSelectedListener();
         ms.setAdapter(values);
         ms.setSelection(0);
         ms.setOnItemSelectedListener(listener);
 
         //Init modifier switch
-        Switch mod_switch = (Switch) view.findViewById(R.id.fragmodswitch);
+        Switch mod_switch = (Switch) view.findViewById(R.id.modifierSwitch);
         mod_switch.setOnCheckedChangeListener(new ModifierFragment.SwitchCheckedChangedListener());
 
         //Init modifier stuff as disabled
-        RadioButton pos_button = (RadioButton) view.findViewById(R.id.fragPosButton);
-        RadioButton neg_button = (RadioButton) view.findViewById(R.id.fragnegbutton);
+        RadioButton pos_button = (RadioButton) view.findViewById(R.id.modifierPosButton);
+        RadioButton neg_button = (RadioButton) view.findViewById(R.id.modifierNegButton);
         pos_button.setEnabled(false);
         neg_button.setEnabled(false);
         ms.setEnabled(false);
@@ -93,9 +90,9 @@ public class ModifierFragment extends Fragment {
     }
 
     private void EnableModifier(boolean enable){
-        RadioButton pos_button = (RadioButton) getView().findViewById(R.id.fragPosButton);
-        RadioButton neg_button = (RadioButton) getView().findViewById(R.id.fragnegbutton);
-        Spinner ms = (Spinner) getView().findViewById(R.id.fragSpinner);
+        RadioButton pos_button = (RadioButton) getView().findViewById(R.id.modifierPosButton);
+        RadioButton neg_button = (RadioButton) getView().findViewById(R.id.modifierNegButton);
+        Spinner ms = (Spinner) getView().findViewById(R.id.modifierSpinner);
 
         if(enable){
             pos_button.setEnabled(true);
