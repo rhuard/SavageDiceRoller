@@ -7,11 +7,11 @@ import java.util.SimpleTimeZone;
  * Created by rhuard on 9/14/17.
  */
 
-public class DiceEngine {
-
+//Savage worlds dice roller (handles raises and wildcards)
+public class SavageDiceEngine {
     Random rand;
 
-    public DiceEngine(){
+    public SavageDiceEngine(){
         rand = new Random(System.currentTimeMillis());
     }
 

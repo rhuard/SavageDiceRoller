@@ -19,33 +19,40 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity{
 
     private final int MOD_MAX = 10;
-    private DiceEngine _dice_engine;
+    private SavageDiceEngine _dice_engine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        _dice_engine = new DiceEngine();
+        _dice_engine = new SavageDiceEngine();
+
+        //Init radio buttons
         RadioGroup rg = (RadioGroup) findViewById(R.id.charTypeRadioGroup);
         rg.check(R.id.wildCardRadioButton);
         RadioGroup mod = (RadioGroup) findViewById(R.id.modifierRadioGroup);
         mod.check(R.id.positiveRadioButton);
+
+        //Init modifier spinner values
         String[] np = new String[MOD_MAX + 1];
         for(int i = 0; i<=MOD_MAX; i++){
             np[i] = String.valueOf(i);
         }
         ArrayAdapter<String> aa = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item , np);
+
+        //Init spinner
         Spinner ms = (Spinner) findViewById(R.id.modiferSpiner);
         AdapterView.OnItemSelectedListener listener = new ModifierOnItemSelectedListener();
         ms.setAdapter(aa);
         ms.setSelection(0);
         ms.setOnItemSelectedListener(listener);
 
+        //Init modifier switch
         Switch mod_switch = (Switch) findViewById(R.id.modifierSwitch);
         mod_switch.setOnCheckedChangeListener(new SwitchCheckedChangedListener());
 
+        //Modifier options start disabled
         EnableModifier(false);
-
     }
 
    //Listener Classes
@@ -98,7 +105,6 @@ public class MainActivity extends AppCompatActivity{
         }else{
             result = false;
         }
-
         return result;
     }
 
@@ -111,7 +117,6 @@ public class MainActivity extends AppCompatActivity{
 
         Integer result = null;
         Switch ms = (Switch) findViewById(R.id.modifierSwitch);
-
         //check if modifer is required
         if(ms.isChecked()){
             //create modifier
@@ -120,14 +125,11 @@ public class MainActivity extends AppCompatActivity{
             if (mod_rd.isChecked()){
                 mod = -mod;
             }
-
             result = _dice_engine.HandleRoll(size, mod, CurrentlyWildCard());
-
         }
         else{
             result = _dice_engine.HandleRoll(size, CurrentlyWildCard());
         }
-
 
         if (result != null) {
             DisplayResult(String.valueOf(result));
