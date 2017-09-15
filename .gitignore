@@ -1,5 +1,5 @@
 # User-specific configurations
-.iml
+*.iml
 .gradle/*
 .idea/libraries/
 .idea/vcs.xml

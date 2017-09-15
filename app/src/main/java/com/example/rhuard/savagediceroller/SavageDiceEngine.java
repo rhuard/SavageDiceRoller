@@ -1,61 +1,88 @@
 package com.example.rhuard.savagediceroller;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Random;
-import java.util.SimpleTimeZone;
+
+import javax.net.ssl.SSLEngineResult;
 
 /**
  * Created by rhuard on 9/14/17.
  */
 
 //Savage worlds dice roller (handles raises and wildcards)
-public class SavageDiceEngine {
-    Random rand;
+public class SavageDiceEngine extends DiceEngine implements DiceResuls{
 
     public SavageDiceEngine(){
-        rand = new Random(System.currentTimeMillis());
+        super();
     }
 
-    private int RollDie(int size){
-        int result = rand.nextInt(size) + 1;
-        //check for ace
-        if (result == size){
-            result += RollDie(size);
-        }
+    //Roll exploding dice creating new results table
+    private Hashtable<String, List<Integer>> RollExplodingDice (int size){
+        Hashtable<String, List<Integer>> results = CreateResultsTable();
+        int result = 0;//default to 0 since no die can have size 0
+        do{
+            result = RollDie(size);
+            results.get("Rolls").add(result);
+        }while(result == size);
 
-        return result;
+        return results;
     }
 
-    private int RollDie(int size, int modifier){
-        return RollDie(size) + modifier;
+    //Add exploding dice roll to existing results table
+    private Hashtable<String, List<Integer>> AddExplodingDiceRoll (int size, Hashtable<String, List<Integer>> results, String results_key){
+        int result = 0;//default to 0 since no die can have size 0
+        do{
+            result = RollDie(size);
+            if(!results.containsKey(results_key)){
+                results.put(results_key, new ArrayList<Integer>());
+            }
+            results.get(results_key).add(result);
+        }while(result == size);
+
+        return results;
     }
 
-    public int HandleRoll(int size){
-        return RollDie(size);
+    //Override because dice can explode
+    @Override
+    public Hashtable<String, List<Integer>> HandleRoll(int size){
+        Hashtable<String, List<Integer>> results = RollExplodingDice(size);
+        int sum = SumRolls(results.get("Rolls"));
+        results.get("Final").add(sum);
+        return results;
     }
 
-    public int HandleRoll(int size, int modifier){
-        return RollDie(size, modifier);
+    //Override because Dice can explode
+    @Override
+    public Hashtable<String, List<Integer>>  HandleRoll(int size, int modifier){
+        Hashtable<String, List<Integer>> results = HandleRoll(size);
+        int sum = SumRolls(results.get("Rolls"));
+        results.get("Final").add(sum + modifier);
+        return results;
     }
 
-    public int HandleRoll(int size, boolean wildcard){
-        //default to 0 because every roll will be over 0
-        int wild = 0;
-        int regular = RollDie(size);
-        int result;
-        if(wildcard) {
-            wild = RollDie(6);
-        }
-
-        if (wild > regular){
-            result = wild;
+    public Hashtable<String, List<Integer>> HandleRoll(int size, boolean wildcard){
+        Hashtable<String, List<Integer>> results = null;
+        if(wildcard){
+            results = RollExplodingDice(size);
+            results = AddExplodingDiceRoll(size, results, "Wildcard");
+            int sum = SumRolls(results.get("Rolls"));
+            int wild_sum = SumRolls(results.get("Wildcard"));
+            if(sum > wild_sum){
+                results.get("Final").add(sum);
+            }else{
+                results.get("Final").add(wild_sum);
+            }
         }else{
-            result = regular;
+            results = HandleRoll(size);
         }
-
-        return result;
+        return results;
     }
 
-    public int HandleRoll(int size, int modifier, boolean wildcard){
-        return HandleRoll(size, wildcard) + modifier;
+    public Hashtable<String, List<Integer>> HandleRoll(int size, int modifier, boolean wildcard){
+        Hashtable<String, List<Integer>> results = HandleRoll(size, wildcard);
+        results.get("Final").set(0, results.get("Final").get(0) + modifier);
+        return results;
     }
 }

@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.Hashtable;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -113,9 +115,23 @@ public class MainActivity extends AppCompatActivity{
         textview.setText(result);
     }
 
+    private void DisplayResult(Hashtable<String, List<Integer>> result){
+        TextView result_text = (TextView) findViewById(R.id.resultTextView);
+        TextView wild_text = (TextView) findViewById(R.id.wildTextView);
+        TextView roll_text = (TextView) findViewById(R.id.rollTextView);
+
+        if(result.containsKey("Wildcard")) {
+            wild_text.setText("Wild die: " + result.get("Wildcard").toString());
+        }else{
+            wild_text.setText("");
+        }
+        roll_text.setText("Roll: " + result.get("Rolls").toString());
+        result_text.setText("Final Result: " + result.get("Final").get(0).toString());
+    }
+
     private void ProcessRoll(int size){
 
-        Integer result = null;
+        Hashtable<String, List<Integer>> result = null;
         Switch ms = (Switch) findViewById(R.id.modifierSwitch);
         //check if modifer is required
         if(ms.isChecked()){
@@ -132,7 +148,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
         if (result != null) {
-            DisplayResult(String.valueOf(result));
+            DisplayResult(result);
         }else{
             DisplayResult("ERROR");
         }

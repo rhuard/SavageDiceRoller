@@ -13,4 +13,6 @@
     <string name="D8Button">D8</string>
     <string name="D10Button">D10</string>
     <string name="D12Button">D12</string>
+    <string name="WildRolls">Wild Die Rolls</string>
+    <string name="Rolls">Rolls</string>
 </resources>
