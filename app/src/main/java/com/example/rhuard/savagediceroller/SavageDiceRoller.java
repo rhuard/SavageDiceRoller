@@ -29,70 +29,11 @@ public class SavageDiceRoller extends AppCompatActivity {
         //Init radio buttons
         RadioGroup rg = (RadioGroup) findViewById(R.id.charTypeRadioGroup);
         rg.check(R.id.wildCardRadioButton);
-        RadioGroup mod = (RadioGroup) findViewById(R.id.modifierRadioGroup);
-        mod.check(R.id.positiveRadioButton);
-
-        //Init modifier spinner values
-        String[] np = new String[MOD_MAX + 1];
-        for(int i = 0; i<=MOD_MAX; i++){
-            np[i] = String.valueOf(i);
-        }
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item , np);
-
-        //Init spinner
-        Spinner ms = (Spinner) findViewById(R.id.modiferSpiner);
-        AdapterView.OnItemSelectedListener listener = new ModifierOnItemSelectedListener();
-        ms.setAdapter(aa);
-        ms.setSelection(0);
-        ms.setOnItemSelectedListener(listener);
-
-        //Init modifier switch
-        Switch mod_switch = (Switch) findViewById(R.id.modifierSwitch);
-        mod_switch.setOnCheckedChangeListener(new SwitchCheckedChangedListener());
-
-        //Modifier options start disabled
-        EnableModifier(false);
-    }
-
-    //Listener Classes
-    public class SwitchCheckedChangedListener implements CompoundButton.OnCheckedChangeListener{
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-            if(isChecked){
-                EnableModifier(true);
-            }else{
-                EnableModifier(false);
-            }
-        }
-    }
-
-    public class ModifierOnItemSelectedListener implements AdapterView.OnItemSelectedListener{
-        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            parent.setSelection(pos);
-        }
-        public void onNothingSelected(AdapterView<?> parent) {
-            //nothing to do
-        }
     }
 
     //Helper Methods
-    private void EnableModifier(boolean enable){
-        RadioButton pos_button = (RadioButton) findViewById(R.id.positiveRadioButton);
-        RadioButton neg_button = (RadioButton) findViewById(R.id.negativeRadioButton);
-        Spinner ms = (Spinner) findViewById(R.id.modiferSpiner);
-
-        if(enable){
-            pos_button.setEnabled(true);
-            neg_button.setEnabled(true);
-            ms.setEnabled(true);
-        }else{
-            pos_button.setEnabled(false);
-            neg_button.setEnabled(false);
-            ms.setEnabled(false);
-        }
-    }
-
     private String CurrentSpinnerValue() {
-        Spinner sp = (Spinner) findViewById(R.id.modiferSpiner);
+        Spinner sp = (Spinner) findViewById(R.id.fragSpinner);
         return sp.getSelectedItem().toString();
     }
 
@@ -129,11 +70,11 @@ public class SavageDiceRoller extends AppCompatActivity {
     private void ProcessRoll(int size){
 
         Hashtable<String, List<Integer>> result = null;
-        Switch ms = (Switch) findViewById(R.id.modifierSwitch);
-        //check if modifer is required
+        Switch ms = (Switch) findViewById(R.id.fragmodswitch);
+        //check if modifier is required
         if(ms.isChecked()){
             //create modifier
-            RadioButton mod_rd = (RadioButton) findViewById(R.id.negativeRadioButton);
+            RadioButton mod_rd = (RadioButton) findViewById(R.id.fragnegbutton);
             int mod = Integer.parseInt(CurrentSpinnerValue());
             if (mod_rd.isChecked()){
                 mod = -mod;
