@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SavageDiceRoller</string>
+    <string name="WildCardButton">Wild Card</string>
+    <string name="ExtraButton">Extra</string>
+    <string name="D4Button">D4</string>
+    <string name="ResultText">result will show here</string>
+    <string name="SliderText">Modifier</string>
+    <string name="PositveButton">+</string>
+    <string name="NegativeButton">-</string>
+    <string name="SpinnerTextView">SpinnerDefault</string>
+    <string name="ModifierValue">Modifier Value</string>
+    <string name="D6Button">D6</string>
+    <string name="D8Button">D8</string>
+    <string name="D10Button">D10</string>
+    <string name="D12Button">D12</string>
+</resources>
