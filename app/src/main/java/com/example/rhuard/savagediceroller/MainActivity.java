@@ -7,6 +7,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -39,9 +40,52 @@ public class MainActivity extends AppCompatActivity{
         ms.setAdapter(aa);
         ms.setSelection(0);
         ms.setOnItemSelectedListener(listener);
+
+        Switch mod_switch = (Switch) findViewById(R.id.modifierSwitch);
+        mod_switch.setOnCheckedChangeListener(new SwitchCheckedChangedListener());
+
+        EnableModifier(false);
+
     }
 
-    private String CurrentSpinnerValue() {
+   //Listener Classes
+    public class SwitchCheckedChangedListener implements CompoundButton.OnCheckedChangeListener{
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+            if(isChecked){
+                EnableModifier(true);
+            }else{
+                EnableModifier(false);
+            }
+        }
+    }
+
+    public class ModifierOnItemSelectedListener implements AdapterView.OnItemSelectedListener{
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            parent.setSelection(pos);
+        }
+        public void onNothingSelected(AdapterView<?> parent) {
+            //nothing to do
+        }
+    }
+
+    //Helper Methods
+    private void EnableModifier(boolean enable){
+        RadioButton pos_button = (RadioButton) findViewById(R.id.positiveRadioButton);
+        RadioButton neg_button = (RadioButton) findViewById(R.id.negativeRadioButton);
+        Spinner ms = (Spinner) findViewById(R.id.modiferSpiner);
+
+        if(enable){
+            pos_button.setEnabled(true);
+            neg_button.setEnabled(true);
+            ms.setEnabled(true);
+        }else{
+            pos_button.setEnabled(false);
+            neg_button.setEnabled(false);
+            ms.setEnabled(false);
+        }
+    }
+
+     private String CurrentSpinnerValue() {
         Spinner sp = (Spinner) findViewById(R.id.modiferSpiner);
         return sp.getSelectedItem().toString();
     }
@@ -92,6 +136,7 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
+    //Button Actions
     public void RollD4(View view){
         ProcessRoll(4);
     }
