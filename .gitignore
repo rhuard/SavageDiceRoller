@@ -1,6 +1,6 @@
 # User-specific configurations
 .iml
-.gradle
+.gradle/*
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
