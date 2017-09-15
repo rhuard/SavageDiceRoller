@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/savageDieRollerButton"
-        android:layout_width="221dp"
-        android:layout_height="63dp"
+        android:layout_width="222dp"
+        android:layout_height="65dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
@@ -20,4 +20,43 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="50dp" />
+
+    <Button
+        android:id="@+id/openD6RollerButton"
+        android:layout_width="222dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="StartOpenD6DieRoller"
+        android:text="@string/OpenD6RollerButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savageDieRollerButton"
+        tools:layout_editor_absoluteY="77dp" />
+
+    <Button
+        android:id="@+id/fudgeRollerButton"
+        android:layout_width="222dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/FudgeRollerButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openD6RollerButton" />
+
+    <Button
+        android:id="@+id/dicePoolDollerButton"
+        android:layout_width="222dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/DicePoolRollerButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fudgeRollerButton" />
+
 </android.support.constraint.ConstraintLayout>

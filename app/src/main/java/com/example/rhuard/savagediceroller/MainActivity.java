@@ -8,6 +8,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,10 +25,21 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //temporary until being developed
+        Button FugeButton = (Button) findViewById(R.id.fudgeRollerButton);
+        Button DicePoolButton = (Button) findViewById(R.id.dicePoolDollerButton);
+        FugeButton.setEnabled(false);
+        DicePoolButton.setEnabled(false);
     }
 
     public void StartSavageDieRoller(View view){
         Intent savage_intent = new Intent(this, SavageDiceRoller.class);
         startActivity(savage_intent);
+    }
+
+    public void StartOpenD6DieRoller(View view){
+        Intent opend6_intent = new Intent(this, OpenD6DiceRoller.class);
+        startActivity(opend6_intent);
     }
 }

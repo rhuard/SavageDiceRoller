@@ -19,4 +19,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="OpenD6RollerButton">Open D6 Die Roller</string>
+    <string name="FudgeRollerButton">Fudge Die Roller</string>
+    <string name="DicePoolRollerButton">Dice Pool Roller</string>
 </resources>
