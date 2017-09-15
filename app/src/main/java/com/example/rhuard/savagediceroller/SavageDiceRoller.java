@@ -24,6 +24,9 @@ public class SavageDiceRoller extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savage_dice_roller);
+
+        setTitle("Savage Worlds");
+
         _dice_engine = new SavageDiceEngine();
 
         //Init radio buttons

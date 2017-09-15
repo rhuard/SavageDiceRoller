@@ -9,5 +9,7 @@ public class OpenD6DiceRoller extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_d6_dice_roller);
+
+        setTitle("Open D6");
     }
 }
