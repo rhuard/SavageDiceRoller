@@ -2,6 +2,7 @@ package com.example.rhuard.savagediceroller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -34,6 +35,7 @@ public class OpenD6DiceRoller extends AppCompatActivity {
         //Init wild die switch
         Switch mod_switch = (Switch) findViewById(R.id.wildDieSwitch);
         mod_switch.setOnCheckedChangeListener(new OpenD6DiceRoller.SwitchCheckedChangedListener());
+        mod_switch.setChecked(true);
     }
 
     //Listener Classes
@@ -125,6 +127,9 @@ public class OpenD6DiceRoller extends AppCompatActivity {
         UpdateDice(-1);
     }
 
-    public void RollDice(View view){ProcessRoll();}
+    public void RollDice(View view){
+        ProcessRoll();
+        findViewById(R.id.openD6RollView).setSelected(true);
+    }
 
 }
