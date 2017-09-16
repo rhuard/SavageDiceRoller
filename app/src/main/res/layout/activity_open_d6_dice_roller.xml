@@ -103,7 +103,22 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="RollDice"
         android:text="@string/RollButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subD6DieButton" />
+
+    <TextView
+        android:id="@+id/openD6WildRollView"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left|center_vertical"
+        android:text="@string/OpenD6WildDieView"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/openD6RollView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>
