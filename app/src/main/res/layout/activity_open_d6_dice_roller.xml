@@ -102,21 +102,37 @@
         app:layout_constraintTop_toBottomOf="@+id/subD6DieButton"
         android:layout_marginStart="16dp" />
 
-    <TextView
-        android:id="@+id/openD6WildRollView"
+    <HorizontalScrollView
+        android:id="@+id/openD6WildDieScrollView"
         android:layout_width="340dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:gravity="left|center_vertical"
-        android:text="@string/OpenD6WildDieView"
-        android:textSize="25sp"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/openD6RollsScrollView" />
+        app:layout_constraintBottom_toTopOf="@+id/openD6RollsScrollView"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/openD6WildRollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:text="@string/OpenD6WildDieView"
+                android:textSize="25sp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <HorizontalScrollView
         android:id="@+id/openD6RollsScrollView"

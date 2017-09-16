@@ -65,7 +65,7 @@ public class OpenD6DiceRoller extends AppCompatActivity {
 
         String roll_text = "";
         if(_wild_die){
-            wild_view.setText("Wild Die: " + String.valueOf(result.get("WildDie").get(0)));
+            wild_view.setText("Wild Die: " + String.valueOf(result.get("WildDie")));
         }else{
             wild_view.setText("");
         }
@@ -127,9 +127,6 @@ public class OpenD6DiceRoller extends AppCompatActivity {
         UpdateDice(-1);
     }
 
-    public void RollDice(View view){
-        ProcessRoll();
-        findViewById(R.id.openD6RollView).setSelected(true);
-    }
+    public void RollDice(View view){ ProcessRoll(); }
 
 }

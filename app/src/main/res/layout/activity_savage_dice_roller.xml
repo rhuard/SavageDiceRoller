@@ -107,38 +107,6 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-    android:id="@+id/savageRollTextView"
-    android:layout_width="340dp"
-    android:layout_height="35dp"
-        android:gravity="left|center_vertical"
-    android:text="@string/Rolls"
-    android:textSize="25sp"
-        android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/savageResultView" />
-
-    <TextView
-        android:id="@+id/savageWwildTextView"
-        android:layout_width="340dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:gravity="left|center_vertical"
-        android:text="@string/WildRolls"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/savageRollTextView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
     <LinearLayout
         android:id="@+id/modifierLayout"
         android:layout_width="168dp"
@@ -147,7 +115,8 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp">
 
         <fragment
             android:id="@+id/modifierFragment"
@@ -155,6 +124,65 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/savageResultView"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/savageRollScrollView">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/savageRollTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:text="@string/Rolls"
+                android:textSize="25sp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="284dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/savageWildRollScrollView"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/savageRollScrollView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/savageWwildTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:text="@string/WildRolls"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="317dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
 
 </android.support.constraint.ConstraintLayout>

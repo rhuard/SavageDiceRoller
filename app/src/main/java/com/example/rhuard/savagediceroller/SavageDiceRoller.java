@@ -93,9 +93,7 @@ public class SavageDiceRoller extends AppCompatActivity {
     }
 
     //Button Actions
-    public void RollD4(View view){
-        ProcessRoll(4);
-    }
+    public void RollD4(View view){ ProcessRoll(4); }
 
     public void RollD6(View view){
         ProcessRoll(6);

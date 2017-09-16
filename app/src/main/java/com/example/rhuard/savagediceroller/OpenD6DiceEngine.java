@@ -22,12 +22,15 @@ public class OpenD6DiceEngine extends DiceEngine implements DiceResuls {
             if (wild_die) {
                 num = num - 1;
                 int roll = 0;
-                //keep rolling if it keeps exploding
-                do{
-                    roll += RollDie(6);
-                }while(roll == 6);
                 results.put("WildDie", new ArrayList<Integer>());
-                results.get("WildDie").add(roll);
+                //keep rolling if it keeps exploding
+                int result;
+                do{
+                    result = RollDie(6);
+                    results.get("WildDie").add(result);
+                    roll += result;
+                }while(roll == 6);
+
                 end += roll;
             }
 
