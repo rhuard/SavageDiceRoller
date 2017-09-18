@@ -27,10 +27,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         //temporary until being developed
-        Button FugeButton = (Button) findViewById(R.id.fudgeRollerButton);
         Button DicePoolButton = (Button) findViewById(R.id.dicePoolDollerButton);
-        FugeButton.setEnabled(false);
         DicePoolButton.setEnabled(false);
+
     }
 
     public void StartSavageDieRoller(View view){
@@ -41,5 +40,10 @@ public class MainActivity extends AppCompatActivity{
     public void StartOpenD6DieRoller(View view){
         Intent opend6_intent = new Intent(this, OpenD6DiceRoller.class);
         startActivity(opend6_intent);
+    }
+
+    public void StartFudgeDieRoller(View view){
+        Intent fudge_intent = new Intent(this, FudgeDiceRoller.class);
+        startActivity(fudge_intent);
     }
 }

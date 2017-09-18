@@ -2,9 +2,9 @@ package com.example.rhuard.savagediceroller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import java.util.Hashtable;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class OpenD6DiceRoller extends AppCompatActivity {
 
@@ -33,9 +32,9 @@ public class OpenD6DiceRoller extends AppCompatActivity {
         SetNumDiceText(_num_dice);
 
         //Init wild die switch
-        Switch mod_switch = (Switch) findViewById(R.id.wildDieSwitch);
-        mod_switch.setOnCheckedChangeListener(new OpenD6DiceRoller.SwitchCheckedChangedListener());
-        mod_switch.setChecked(true);
+        Switch wild_switch = (Switch) findViewById(R.id.wildDieSwitch);
+        wild_switch.setOnCheckedChangeListener(new OpenD6DiceRoller.SwitchCheckedChangedListener());
+        wild_switch.setChecked(true);
     }
 
     //Listener Classes
@@ -49,6 +48,7 @@ public class OpenD6DiceRoller extends AppCompatActivity {
         }
     }
 
+    //Helpers
     private void DisplayResult(String text){
         TextView result_view = (TextView) findViewById(R.id.openD6ResultView);
         TextView roll_view = (TextView) findViewById(R.id.openD6RollView);
@@ -59,6 +59,13 @@ public class OpenD6DiceRoller extends AppCompatActivity {
     }
 
     private void DisplayResult(Hashtable<String, List<Integer>> result){
+        HorizontalScrollView result_scroll = (HorizontalScrollView) findViewById(R.id.openD6ResultsScrollView);
+        HorizontalScrollView rolls_scroll = (HorizontalScrollView) findViewById(R.id.openD6RollsScrollView);
+        HorizontalScrollView wild_scroll = (HorizontalScrollView) findViewById(R.id.openD6WildDieScrollView);
+        result_scroll.scrollTo(0,0);
+        rolls_scroll.scrollTo(0,0);
+        wild_scroll.scrollTo(0,0);
+
         TextView result_view = (TextView) findViewById(R.id.openD6ResultView);
         TextView roll_view = (TextView) findViewById(R.id.openD6RollView);
         TextView wild_view = (TextView) findViewById(R.id.openD6WildRollView);
@@ -75,7 +82,6 @@ public class OpenD6DiceRoller extends AppCompatActivity {
         result_view.setText("Final Results: " + result.get("Final").get(0));
     }
 
-    //helpers
     private String CurrentSpinnerValue() {
         Spinner sp = (Spinner) findViewById(R.id.modifierSpinner);
         return sp.getSelectedItem().toString();

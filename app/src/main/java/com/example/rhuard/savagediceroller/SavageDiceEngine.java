@@ -3,16 +3,13 @@ package com.example.rhuard.savagediceroller;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Random;
-
-import javax.net.ssl.SSLEngineResult;
 
 /**
  * Created by rhuard on 9/14/17.
  */
 
 //Savage worlds dice roller (handles raises and wildcards)
-public class SavageDiceEngine extends DiceEngine implements DiceResuls{
+public class SavageDiceEngine extends DiceEngine implements DiceResults {
 
     public SavageDiceEngine(){
         super();

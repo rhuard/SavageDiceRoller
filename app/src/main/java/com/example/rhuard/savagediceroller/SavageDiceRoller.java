@@ -3,6 +3,7 @@ package com.example.rhuard.savagediceroller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -54,6 +55,13 @@ public class SavageDiceRoller extends AppCompatActivity {
     }
 
     private void DisplayResult(Hashtable<String, List<Integer>> result){
+        HorizontalScrollView result_scroll = (HorizontalScrollView) findViewById(R.id.savageResutsScrollView);
+        HorizontalScrollView rolls_scroll = (HorizontalScrollView) findViewById(R.id.savageRollScrollView);
+        HorizontalScrollView wild_scroll = (HorizontalScrollView) findViewById(R.id.savageWildRollScrollView);
+        result_scroll.scrollTo(0,0);
+        rolls_scroll.scrollTo(0,0);
+        wild_scroll.scrollTo(0,0);
+
         TextView result_text = (TextView) findViewById(R.id.savageResultView);
         TextView wild_text = (TextView) findViewById(R.id.savageWwildTextView);
         TextView roll_text = (TextView) findViewById(R.id.savageRollTextView);

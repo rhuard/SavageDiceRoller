@@ -8,7 +8,7 @@ import java.util.List;
  * Created by rhuard on 9/15/17.
  */
 
-public class OpenD6DiceEngine extends DiceEngine implements DiceResuls {
+public class OpenD6DiceEngine extends DiceEngine implements DiceResults {
 
     public OpenD6DiceEngine(){
         super();

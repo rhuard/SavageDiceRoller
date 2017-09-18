@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
-import java.util.StringTokenizer;
 
 /**
  * Created by rhuard on 9/15/17.
  */
 
 //basic dice roller
-public class DiceEngine implements DiceResuls {
+public class DiceEngine implements DiceResults {
 
     public Random rand;
 

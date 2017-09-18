@@ -91,22 +91,6 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savageD10Button" />
 
-    <TextView
-    android:id="@+id/savageResultView"
-    android:layout_width="340dp"
-    android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-    android:gravity="left|center_vertical"
-    android:text="@string/ResultText"
-    android:textSize="25sp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
     <LinearLayout
         android:id="@+id/modifierLayout"
         android:layout_width="168dp"
@@ -128,13 +112,15 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
     <HorizontalScrollView
         android:layout_width="340dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/savageResultView"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/savageRollScrollView">
+        android:id="@+id/savageRollScrollView"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/savageResutsScrollView">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -164,7 +150,9 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
         app:layout_constraintBottom_toTopOf="@+id/savageRollScrollView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -181,6 +169,37 @@ tools:context="com.example.rhuard.savagediceroller.SavageDiceRoller"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_editor_absoluteY="317dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/savageResutsScrollView"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/savageResultView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="@string/ResultText"
+                android:textSize="25sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="460dp" />
         </LinearLayout>
     </HorizontalScrollView>
 
