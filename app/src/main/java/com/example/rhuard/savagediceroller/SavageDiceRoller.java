@@ -15,7 +15,6 @@ import java.util.List;
 
 public class SavageDiceRoller extends AppCompatActivity {
 
-    private final int MOD_MAX = 10;
     private SavageDiceEngine _dice_engine;
 
     @Override
@@ -56,7 +55,7 @@ public class SavageDiceRoller extends AppCompatActivity {
 
     private void DisplayResult(Hashtable<String, List<Integer>> result){
         HorizontalScrollView result_scroll = (HorizontalScrollView) findViewById(R.id.savageResutsScrollView);
-        HorizontalScrollView rolls_scroll = (HorizontalScrollView) findViewById(R.id.savageRollScrollView);
+        HorizontalScrollView rolls_scroll = (HorizontalScrollView) findViewById(R.id.dicePoolRollScrollView);
         HorizontalScrollView wild_scroll = (HorizontalScrollView) findViewById(R.id.savageWildRollScrollView);
         result_scroll.scrollTo(0,0);
         rolls_scroll.scrollTo(0,0);

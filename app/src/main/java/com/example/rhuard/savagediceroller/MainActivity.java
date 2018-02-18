@@ -25,11 +25,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //temporary until being developed
-        Button DicePoolButton = (Button) findViewById(R.id.dicePoolDollerButton);
-        DicePoolButton.setEnabled(false);
-
     }
 
     public void StartSavageDieRoller(View view){
@@ -45,5 +40,10 @@ public class MainActivity extends AppCompatActivity{
     public void StartFudgeDieRoller(View view){
         Intent fudge_intent = new Intent(this, FudgeDiceRoller.class);
         startActivity(fudge_intent);
+    }
+
+    public void StartDicePoolRoller(View view){
+        Intent dice_pool_intent = new Intent(this, DicePoolRoller.class);
+        startActivity(dice_pool_intent);
     }
 }

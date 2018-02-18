@@ -63,7 +63,7 @@ public class SavageDiceEngine extends DiceEngine implements DiceResults {
         Hashtable<String, List<Integer>> results = null;
         if(wildcard){
             results = RollExplodingDice(size);
-            results = AddExplodingDiceRoll(size, results, "Wildcard");
+            results = AddExplodingDiceRoll(6, results, "Wildcard");
             int sum = SumRolls(results.get("Rolls"));
             int wild_sum = SumRolls(results.get("Wildcard"));
             if(sum > wild_sum){

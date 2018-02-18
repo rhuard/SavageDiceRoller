@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rhuard.savagediceroller.DicePoolRoller">
+
+    <LinearLayout
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:orientation="horizontal"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:id="@+id/linearLayout">
+
+        <fragment
+            android:id="@+id/dicePoolModifierFragment"
+            android:name="com.example.rhuard.savagediceroller.ModifierFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d4TextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/D4Button"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/d4MinusButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/d4MinusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="18dp"
+        android:onClick="RemoveD4"
+        android:text="@string/NegativeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/NegativeButton" />
+
+    <Button
+        android:id="@+id/d4PlusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:onClick="AddD4"
+        android:text="@string/PositveButton"
+        app:layout_constraintLeft_toRightOf="@+id/d4TextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/d6MinusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="9dp"
+        android:onClick="RemoveD6"
+        android:text="@string/NegativeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d4MinusButton" />
+
+    <TextView
+        android:id="@+id/d6TextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D6Button"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/d6MinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/d4TextView" />
+
+    <Button
+        android:id="@+id/d6PlusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="AddD6"
+        android:text="@string/PositveButton"
+        app:layout_constraintLeft_toRightOf="@+id/d6TextView"
+        app:layout_constraintTop_toBottomOf="@+id/d4PlusButton" />
+
+    <Button
+        android:id="@+id/d8MinusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="RemoveD8"
+        android:text="@string/NegativeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d6MinusButton" />
+
+    <TextView
+        android:id="@+id/d8TextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D8Button"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/d8MinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/d6TextView" />
+
+    <Button
+        android:id="@+id/d8PlussButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="AddD8"
+        android:text="@string/PositveButton"
+        app:layout_constraintLeft_toRightOf="@+id/d8TextView"
+        app:layout_constraintTop_toBottomOf="@+id/d6PlusButton" />
+
+    <Button
+        android:id="@+id/d10MinusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="8dp"
+        android:onClick="RemoveD10"
+        android:text="@string/NegativeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d8MinusButton" />
+
+    <TextView
+        android:id="@+id/d10TextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D10Button"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d8TextView"
+        app:layout_constraintLeft_toRightOf="@+id/d10MinusButton"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/d10PlusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="AddD10"
+        android:text="@string/PositveButton"
+        app:layout_constraintLeft_toRightOf="@+id/d10TextView"
+        app:layout_constraintTop_toBottomOf="@+id/d8PlussButton" />
+
+    <Button
+        android:id="@+id/d12MinusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="RemoveD12"
+        android:text="@string/NegativeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d10MinusButton" />
+
+    <TextView
+        android:id="@+id/d12TextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D12Button"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/d12MinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/d10TextView" />
+
+    <Button
+        android:id="@+id/d12PlusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="AddD12"
+        android:text="@string/PositveButton"
+        app:layout_constraintLeft_toRightOf="@+id/d12TextView"
+        app:layout_constraintTop_toBottomOf="@+id/d10PlusButton" />
+
+    <Button
+        android:id="@+id/d20MinusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="8dp"
+        android:onClick="RemoveD20"
+        android:text="@string/NegativeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d12MinusButton" />
+
+    <TextView
+        android:id="@+id/d20TextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D20Button"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/d20MinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/d12TextView" />
+
+    <Button
+        android:id="@+id/d20PlusButton"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="AddD20"
+        android:text="@string/PositveButton"
+        app:layout_constraintLeft_toRightOf="@+id/d20TextView"
+        app:layout_constraintTop_toBottomOf="@+id/d12PlusButton" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="151dp"
+        android:layout_height="31dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/TotalDiceRolled"
+        android:textSize="25sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="217dp" />
+
+    <TextView
+        android:id="@+id/d4CountTextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:text="@string/D4Button"
+        android:textSize="25sp"
+        app:layout_constraintRight_toLeftOf="@+id/d6CountTextView"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/d4Total"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/d4CountTextView"
+        app:layout_constraintRight_toLeftOf="@+id/d6Total"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/d6CountTextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:text="@string/D6Button"
+        android:textSize="25sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintRight_toLeftOf="@+id/d8CountTextView"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/d6Total"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="0dp"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d6CountTextView"
+        app:layout_constraintRight_toLeftOf="@+id/d8Total"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/d8CountTextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/D8Button"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/d8Total"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="-4dp"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d8CountTextView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/d10CountTextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D10Button"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d4Total"
+        app:layout_constraintRight_toLeftOf="@+id/d12CountTextView"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/d12CountTextView"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:text="@string/D12Button"
+        android:textSize="25sp"
+        app:layout_constraintRight_toLeftOf="@+id/d20CountTextView"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/d6Total" />
+
+    <TextView
+        android:id="@+id/d20CountTextView"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/D20Button"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d8Total"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/d10Total"
+        android:layout_width="45dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="0dp"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d10CountTextView"
+        app:layout_constraintRight_toLeftOf="@+id/d12Total"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/d12Total"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="0dp"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d12CountTextView"
+        app:layout_constraintRight_toLeftOf="@+id/d20Total"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/d20Total"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="0dp"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/d20CountTextView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/RollButton"
+        android:layout_width="135dp"
+        android:layout_height="69dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="12dp"
+        android:onClick="RollDice"
+        android:text="@string/RollButton"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/d10CountTextView"
+        app:layout_constraintTop_toBottomOf="@+id/d20TextView" />
+
+    <HorizontalScrollView
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/dicePoolRollScrollView"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/dicePoolResultScrollView">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dicePoolRollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:text="@string/Rolls"
+                android:textSize="25sp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="284dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/dicePoolResultScrollView"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dicePoolResultsView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:text="@string/ResultText"
+                android:textSize="25sp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="284dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -13,9 +13,11 @@
     <string name="D8Button">D8</string>
     <string name="D10Button">D10</string>
     <string name="D12Button">D12</string>
+    <string name="D20Button">D20</string>
     <string name="WildRolls">Wild Die Rolls</string>
     <string name="Rolls">Rolls</string>
     <string name="SavageDieRollerButton">Savage Die Roller</string>
+    <string name="TotalDiceRolled">Dice Pool</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

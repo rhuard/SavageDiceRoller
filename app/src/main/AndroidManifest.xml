@@ -31,9 +31,17 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
 
-        <activity android:name=".FudgeDiceRoller"
+        <activity
+            android:name=".FudgeDiceRoller"
             android:parentActivityName=".MainActivity">
             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".DicePoolRoller"
+            android:parentActivityName=".MainActivity">
+            <Meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
